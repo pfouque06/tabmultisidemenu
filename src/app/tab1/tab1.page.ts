@@ -12,10 +12,12 @@ export class Tab1Page {
 
   constructor(private menuCtl: MenuController) {}
 
-  ionViewWillEnter() {
+  async ionViewWillEnter() {
     console.log('tab1.ionViewWillEnter()');
     this.paneEnabled = true;
-    this.menuCtl.enable(true, 'first');
+    const menuId = await this.menuCtl.enable(true, 'first');
+    console.log('menuId: ', menuId);
+    
   }
   
   ionViewWillLeave() {
